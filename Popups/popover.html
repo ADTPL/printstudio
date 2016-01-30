@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Pop-up</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" media="screen" href="css/bootstrap-responsive.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+			<link rel="stylesheet" href="css/style-noscript.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+		
+
+				<div class="ui-popover">
+					<h3>Text Formatting</h3>
+					<ul>
+						<li style="display: inline-flex">
+							<div class="dropdown ui-textTransform" >
+								<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									Select Font
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+									<li><a href="#">Myriad Pro</a></li>
+									<li><a href="#">Helvettica</a></li>
+									<li><a href="#">Droid Sans</a></li>
+								</ul>
+							</div>
+							<div class="dropdown  ui-textTransform">
+								<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									Font Size
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+									<li><a href="#">8</a></li>
+									<li><a href="#">10</a></li>
+									<li><a href="#">12</a></li>
+									
+								</ul>
+							</div>
+							<div class="dropdown  ui-textTransform">
+								<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									Text Case
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+									<li><a href="#">UPPER CASE</a></li>
+									<li><a href="#">lower case</a></li>
+									<li><a href="#">Sentence Case</a></li>
+									
+								</ul>
+							</div>
+						</li>
+						<li style="margin-bottom:8px">
+							<div class="btn-group" role="group" aria-label="...">
+								<button type="button" class="btn btn-default"><strong>B</strong></button>
+								<button type="button" class="btn btn-default"><em>I</em></button>
+								<button type="button" class="btn btn-default"><strike>S</strike></button>
+								<button type="button" class="btn btn-default">U</button>
+								<button type="button" class="btn btn-default">D</button>
+								<button type="button" class="btn btn-default">K</button>
+							</div>
+						</li>
+						
+						<li>
+							<div class="ui-colorPickerHolder">
+								<div class="ui-bgColorHolder">
+								<label>FILL<input type="color" id="tint-color" value="" style="margin-left: 10px"></label>
+								</div>
+								<div class="ui-mainColorHolder">
+								<label>OUTLINE <input type="color" id="tint-color" value="" style="margin-left: 10px"></label>
+								</div>
+								
+							</div>
+						</li>
+										
+					</ul>
+				</div>
+				
+				<div class="ui-stylePopover">
+					<h3>Style Formatting</h3>
+					<ul>
+						<li>
+							<div class="ui-variousHolders">
+								<div class="ui-opacityHolder">
+								<label style="display: inline-flex">Opacity <input class="scroller"type="range" id="tint-transparency" min="0" max="1" value="1" step="0.1"></label>
+								</div>
+								<div class="ui-opacityHolder">
+								<label style="display: inline-flex">Border <input class="scroller"type="range" id="tint-transparency" min="0" max="1" value="1" step="0.1"><input class="colorpallette" type="color" id="tint-color" value="#ffcc00"></label>
+								</div>
+								<div class="ui-opacityHolder">
+								<label style="display: inline-flex">Shadow <input class="scroller"type="range" id="tint-transparency" min="0" max="1" value="1" step="0.1"><input class="colorpallette" type="color" id="tint-color" value="#ffcc00"></label>
+								</div>
+								
+							</div>
+						</li>
+										
+					</ul>
+				</div>
+				<div class="ui-stylePopover" style="Display: inline-block">
+					<h3>FREEHAND MODE</h3>
+					<button type="button" class="btn btn-default" style="width: 100%; padding-bottom: 10px; margin-bottom: 10px;"><strong>Enter Freehand mode</strong></button>
+					<ul>
+						<div style="display: inline-flex">
+							<li>
+								<div class="dropdown ui-textTransform" >
+									<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									Select Brush
+									<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+										<li><a href="#">Pencil</a></li>
+										<li><a href="#">Circle</a></li>
+										<li><a href="#">Spray</a></li>
+										<li><a href="#">Pattern</a></li>
+										<li><a href="#">Hline</a></li>
+										<li><a href="#">Vline</a></li>
+										<li><a href="#">Square</a></li>
+										<li><a href="#">Diamond</a></li>
+										<li><a href="#">Texture</a></li>
+									</ul>
+								</div>
+							</li>
+						</div>
+						<li style="display: inline-flex">
+							<div class="ui-colorPickerHolder">
+								<div class="ui-bgColorHolder">
+								<label>Line Color<input type="color" id="tint-color" value="" style="margin-left: 10px; "></label>
+								</div>
+							</div>
+						</li>
+						<li><div class="ui-variousHolders">
+								<div class="ui-opacityHolder">
+								<label style="display: inline-flex" >BrushSize <input class="scroller"type="range" id="tint-transparency" min="0" max="1" value="1" step="0.1" style="margin-left: 50px"></label>
+							</div>
+						</li>
+					</ul>
+				</div>
+	
+								
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.easing.min.js"></script>
+		<script src="js/jquery.themepunch.plugins.min.js"></script>
+		<script src="js/jquery.themepunch.revolution.js"></script>
+		<script src="js/jquery.form.js"></script>
+		
+	</body>
+</html>																								
