@@ -433,28 +433,11 @@
                                 <form id="uploadBgImg" runat="server">
                                   <input class="form-control" type="file" id="imgLoader"/>
                                 </form>
+                                  <input id="images-search-qry" name="images-search-qry" placeholder="search for images"/>
+                                  <button id="images-search-btn"> Search</button>
                                 <br>                                
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div><div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div><div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div><div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div>  <div class="empty-box"></div><div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div>
-                                <div class="empty-box"></div>
+                                <div id="image-search-results-div">
+                                </div>
                             </div><!-- /tab-pane -->
                             <div class="tab-pane fade" id="advertisinga">
                                 <div class="empty-box" id="addNewCircle"><img src="img/shapes/circle.png"/></div>
@@ -3314,9 +3297,99 @@
                                 });
                             }
                             );
+                            
+                            //Image Seach realted ops START HERE
+                            function clearImgSearchResults(){
+                              $("#image-search-results-div").empty();
+                            }
 
-                           
+                            function GetSearchResults(query_phrase) {
+                              $.ajax({
+                                type: "GET",
+                                url: "pexels.php",
+                                data: {phrase: query_phrase}
+                            })
+                                .success(function (data) { 
+                                  console.log("success is here");
+                                  // console.log(data);
+                                  // $('body').text(JSON.stringify(data));
+                                  var data_parsed = JSON.parse(data);
+                                  console.log(data_parsed.photos[0].src.original);
+                                  var imgs_retrieved_arr_preview = [];
+                                  var imgs_retrieved_arr = [];
+                                  for(var i =0;i<15;i++){
+                                    imgs_retrieved_arr_preview.push(data_parsed.photos[i].src.small);
+                                    imgs_retrieved_arr.push(data_parsed.photos[i].src.original);
+                                  }
+                                  console.log("array below");
+                                  clearImgSearchResults();
+                                  for(j=0;j<imgs_retrieved_arr.length;j++){
+                                    // console.log(imgs_retrieved_arr[j]);
+                                    $("#image-search-results-div").append('<img height="200px" class="image-retreived empty-box fadeInLeft" data-original="'+imgs_retrieved_arr[j]+'" src="'+imgs_retrieved_arr_preview[j]+'"/>');
+                                  }
+                                  
 
+                                /* use search results */ })
+                                .fail(function (data, err) { 
+                                  console.log("sfaile is here");
+
+                                  console.log(JSON.stringify(data)+err);
+                                /* handle errors */ });
+                            }
+
+                              $("#images-search-btn").on('click', function(){
+                              var image_search_phrase = $("#images-search-qry").val();
+                              GetSearchResults(image_search_phrase);
+                            });
+
+                            $(document).on('keypress','#images-search-qry', function(key){
+                              if(key.which === 13){
+                                var image_search_phrase = $("#images-search-qry").val();
+                                GetSearchResults(image_search_phrase);      
+                              }
+                            });
+
+                            $(document).on('click', ".image-retreived", function(){
+                              var original_url = $(this).attr('data-original');
+                              alert(original_url);
+                              // Image Seach realted ops END HERE
+                              fabric.util.loadImage(original_url, function(img) {
+                                image_to_be_added = new fabric.Image(img);
+                                // canvas.setWidth(image_to_be_cropped.getWidth());
+                                // canvas.setHeight(image_to_be_cropped.getHeight());
+                                var imgH = image_to_be_added.height;
+                                var imgW = image_to_be_added.width;
+                                var aspectRatioImg = imgH/imgW;
+                                var newImgHeight,newImgWidth;
+                                if(imgH >= imgW){
+                                  //Case of potrait images
+                                  newImgHeight = canvas.height;
+                                  newImgWidth = newImgHeight/aspectRatioImg;
+
+                                }
+                                else{
+                                  //case of landscape images
+                                  newImgWidth = canvas.width;
+                                  newImgHeight = newImgWidth*aspectRatioImg;
+                                }
+                                image_to_be_added.set({
+                                    left: 0,
+                                    top: 0,
+                                    height:newImgHeight,
+                                    width:newImgWidth,
+                                    // angle: 20,
+                                    padding: 10,
+                                    cornersize: 10
+                                });
+                                image_to_be_added.crossOrigin = "";
+                                canvas.add(image_to_be_added);
+                                // canvas.centerObject(image_to_be_cropped);
+                                canvas.renderAll();
+                            });
+                            
+
+                            });
+                          
             </script>
 
 
